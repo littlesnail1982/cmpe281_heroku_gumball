@@ -12,4 +12,20 @@ router.get('/', function(req, res, next) {
   });
 });
 
+/* UPDATE one item */
+router.put('/:id/:count', function(req, res, next) {
+	var name = {_id: req.params.id};
+	var update = {countGumballs: req.params.count};
+	var options = {new: true};
+
+	Gumball.findOneAndUpdate(name, update, options, function(err, data){
+		if (err) {
+			res.json(err.message);
+		}
+		else {
+			res.json(data);
+		}
+	});
+});
+
 module.exports = router;
