@@ -4,10 +4,7 @@ var Schema = mongoose.Schema;
 var GumballSchema = new Schema(
 {
 	_id: Number,
-    version: Number,
-    countGumballs: Number,
-    modelNumber: String,
-    serialNumber: Number
+    value: String
 });
 
 module.exports = mongoose.model('gumball', GumballSchema,'gumball');

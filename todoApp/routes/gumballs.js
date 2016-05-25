@@ -12,10 +12,25 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.post('/create/:id/:value', function(req, res, next) {
+	var newItem = new Gumball({
+		_id: req.params.id, 
+		value: req.params.value
+	});
+	newItem.save(function(err, data){
+		if (err) {
+			res.json(err);
+		}
+		else {
+			res.json(data);
+		}
+	});
+});
+
 /* UPDATE one item */
-router.put('/:id/:count', function(req, res, next) {
+router.put('/:id/:value', function(req, res, next) {
 	var name = {_id: req.params.id};
-	var update = {countGumballs: req.params.count};
+	var update = {value: req.params.value};
 	var options = {new: true};
 
 	Gumball.findOneAndUpdate(name, update, options, function(err, data){
@@ -27,5 +42,6 @@ router.put('/:id/:count', function(req, res, next) {
 		}
 	});
 });
+
 
 module.exports = router;

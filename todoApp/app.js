@@ -27,7 +27,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/gumball', gumballs);
 
-var dburi = "mongodb://ec2-52-37-150-14.us-west-2.compute.amazonaws.com:27017,ec2-52-40-109-227.us-west-2.compute.amazonaws.com:27017,ec2-52-40-79-107.us-west-2.compute.amazonaws.com:27017/test?replicaSet=rs0&readPreference=secondaryPreferred"
+var dburi = "mongodb://ec2-52-40-89-193.us-west-2.compute.amazonaws.com:27017,ec2-52-10-132-168.us-west-2.compute.amazonaws.com:27017,ec2-52-36-16-38.us-west-2.compute.amazonaws.com:27017/test?replicaSet=rs0&readPreference=secondaryPreferred"
 var mongoose = require('mongoose');
 mongoose.connect(dburi, function(err) {
     if(err) {
